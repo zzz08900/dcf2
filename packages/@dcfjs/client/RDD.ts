@@ -1,4 +1,3 @@
-import { FinalizedFunc } from './RDD';
 import '@dcfjs/common/noCaptureEnv';
 import { ExecTask } from './../master/index';
 import { FunctionEnv } from './../common/serializeFunction';
@@ -104,6 +103,10 @@ export abstract class RDD<T> {
     this._context = context;
   }
   abstract getFunc(): RDDFuncs<T[]> | Promise<RDDFuncs<T[]>>;
+
+  getContext(){
+    return this._context;
+  }
 
   // Dependence rdd should override this method to get better performance.
   getNumPartitions(): number | Promise<number> {

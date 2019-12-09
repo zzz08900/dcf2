@@ -18,6 +18,12 @@ async function main() {
   try {
     // Initial process:
     const server = await createMasterServer({
+      storages: [
+        {
+          name: 'disk',
+          module: '@dcfjs/common/SharedFsTempStorage',
+        },
+      ],
       port: PORT,
       host: HOST,
     });
