@@ -28,7 +28,7 @@ function serializeValue(v: any): any {
     if (Array.isArray(v)) {
       return v.map(serializeValue);
     }
-    if (v instanceof RegExp || v instanceof Buffer) {
+    if (v instanceof RegExp || v instanceof Buffer || v instanceof Date) {
       return v;
     }
     if (v.constructor !== Object) {
